@@ -13,9 +13,65 @@ void main(List<String> arguments) {
   jalapao.aventura(); // codigo sem enum
   jalapao.aventura2(); // codigo com enum
 
-  /*Aula 2 Collections
-
+  /*Aula 2 Collections ( Não esquecer de mostrar a Documentação )
+* Explicar o conceito de Collections e o armazenamento/manipulação de Dados.
+  * Relembrar de Listas
+  * - Novo conceito: Iterables
+  *   - Coleção de Elementos que podem ser acessados SEQUENCIALMENTE. (Ordem)
+  * Sets
+  * - Problema que o Set resolve: Valores repetidos
+  * - Mostrar Sintaxe de Sets
+  * - Coleção onde a inputs repetidos são ignorados.
+  * - Mostrar Comparação entre sets.
+  * Maps
+  * - Problemas que o Maps resolve: Lista de Listas
+  * - Mostrar Sintaxe de Maps
+  * - Coleção onde há valores e chaves
+  * Queue * -> Se ficar curto adicionar Queue na Aula.
   * */
+  List<String> destinos = [
+    'Jalapão',
+    'Chapada dos Veadeiros',
+    'João Pessoa',
+    'Chapada dos Veadeiros'
+  ];
+  print(destinos);
+
+  Set destinosVisitados = <String>{ // se ficar curto adicionar elementos no Set.
+    'Rio de Janeiro',
+    'Chapada dos Veadeiros',
+    'São Paulo',
+    'Chapada dos Veadeiros',
+  };
+  print(destinosVisitados);
+
+  Set destinosDesejados = <String>{
+    'Jalapão',
+    'Califórnia',
+    'Gramado',
+    'Chapada Diamantina',
+    'São Paulo'
+  };
+  print(destinosDesejados.intersection(destinosVisitados));
+
+  //Map Literal
+  Map<String, String> motivoMap = { // se ficar curto adicionar Elementos no Map
+    'Jalapão': 'Natureza',
+    'Califórnia': 'Arte',
+    'Gramado': 'Chocolate',
+    'Chapada Diamantina': 'Cachoeiras',
+    'São Paulo': 'Compras',
+  };
+  print(motivoMap);
+  //Map Contrutor
+  Map<String, dynamic> precoMap = {
+    'Jalapão': 2380.00,
+    'Califórnia': 'MUITO CARO',
+    'Gramado': 1200,
+    'Chapada Diamantina': 600,
+    'São Paulo': 'Barato',
+  };
+  print(precoMap);
 
   /*Aula 3 Dinamismo*/
   /*Aula 4 Encapsulamento*/
@@ -41,11 +97,12 @@ class Viajar {
     } else {
       print('Estou indo numa Aventura!');
     }
-  }//Aula 1
-  void aventura2(){
+  } //Aula 1
+
+  void aventura2() {
     //aqui vamos usar o Enums para melhorar
     //também vamos usar switch and case, que foram disponibilizados num para saber mais do curso 1.
-    switch(locomocao){
+    switch (locomocao) {
       case Transporte.carro:
         print('Estou indo numa Aventura de Carro!');
         break;
@@ -70,11 +127,12 @@ class Viajar {
       case Transporte.skate:
         print('Estou indo numa Aventura de Skate!');
         break;
-      default:{
-        print('Estou indo numa Aventura!');
-      }
+      default:
+        {
+          print('Estou indo numa Aventura!');
+        }
     }
-  }//Aula 1
+  } //Aula 1
 }
 
 enum Transporte {
@@ -88,4 +146,3 @@ enum Transporte {
   patins,
   skate,
 }
-
