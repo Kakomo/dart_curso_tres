@@ -1,3 +1,6 @@
+import 'transporte.dart';
+import 'viajar.dart';
+
 void main(List<String> arguments) {
   //versão do Dart -> 2.14.0
 
@@ -123,86 +126,52 @@ void main(List<String> arguments) {
   // note que o compilador não está reclamando...
   // print(z); -> vai dar um erro porque não da pra somar int com String...
 
-  /*Aula 4 Encapsulamento*/
+  /*Aula 4 Encapsulamento
+  * -Encapsular:
+  *   Quando queremos impedir que as informações de dentro da nossa classe sejam acessadas
+  * facilmente, devemos começar a privatizar nossos parametros e métodos. A conduta de privatização
+  * facilita a manutenção do seu código e impede que informações delicadas sejam manipuladas
+  * levianamente.
+  * -Getter:
+  *   Simplesmente Pegar os dados da informação que não é acessível por fora.
+  * (habilitar a ação de pegar algo que não é seu)
+  * -Setter:
+  *   Simplesmente Alterar a informação que não é alterável por fora.
+  * (mudar valores de algo que não é seu)
+  * */
+
+  //Agora eu quero mexer diretamente no valor da minha quantidade de visitas
+  chapada.visitas = 20;
+  print(chapada.visitas);
+  //E se eu quiser acessar o numero total de viagens?
+  //print(Viajar._viagens); -> não podemos mais acessar (Aula 4.2)
+  //E se eu tentar altera-la?
+  //Viajar._viagens = 19;
+  //print(Viajar._viagens);
+  //Não quero que essa informação seja facilmente alterada, quero que ela seja protegida.
+
+  //mesmo depois de alterar para uma classe privada ainda podemos acessa-la,
+  //vamos agora tirar a classe viagens desse arquivo!
+
+  //Agora que de fato refatoramos o código a informação de _viagens está completamente inacessível.
+  //Para acessá-la, devemos usar Get  e para altera-la devemos usar o Set.
+
+
+  //Viajar.numeroDeViagens; -> não conseguimos acessar
+  print(jalapao.numeroDeViagens) ; //Agora podemos acessar nosso valor estatico pelo objeto instanciado(criado)
+
+  //mas ainda não podemos alterar, para isso devemos criar o Set.
+jalapao.alterarViagens = 200;
+print(jalapao.numeroDeViagens);
+
 
   /*Aula 5 Callbacks
+
+
   */
 }
 
-class Viajar {
-  //Na Aula 1 vamos criar uma classe para viajar, mas vamos fazer de um jeito beeem errado, que é usando números para definir o tipo de locomoção.
-  // 1 = Carro; 2 = Bicicleta; 3 = Avião;
-  Transporte locomocao;
-
-  int visitas = 0;//Aula 3
-  static int viagens = 0; //Aula 3
-
-  Viajar({required this.locomocao});
-
-  void visitar(){
-    visitas++;
-    viagens++;
-    print('Você visitou esse lugar $visitas vezes \n Você já fez um total de $viagens viagens \n');
-  } //Aula 3
-
-  void aventura() {
-    //esse modo de definir a locomocao é péssimo, pois não é intuitivo, imagina se nos temos 100 tipos diferentes de locomocao? teremos que ir na tabela para assegurar que o numero escolhido é o correto...
-    if (locomocao == 1) {
-      print('Estou indo numa Aventura de Carro!');
-    } else if (locomocao == 2) {
-      print('Estou indo numa Aventura de Carro!');
-    } else if (locomocao == 3) {
-      print('Estou indo numa Aventura de Carro!');
-    } else {
-      print('Estou indo numa Aventura!');
-    }
-  } //Aula 1
-
-  void aventura2() {
-    //aqui vamos usar o Enums para melhorar
-    //também vamos usar switch and case, que foram disponibilizados num para saber mais do curso 1.
-    switch (locomocao) {
-      case Transporte.carro:
-        print('Estou indo numa Aventura de Carro!');
-        break;
-      case Transporte.bicicleta:
-        print('Estou indo numa Aventura de Bike!');
-        break;
-      case Transporte.onibus:
-        print('Estou indo numa Aventura de Busão!');
-        break;
-      case Transporte.aviao:
-        print('Estou indo numa Aventura de Avião!');
-        break;
-      case Transporte.andando:
-        print('Estou indo numa Aventura a Pé!');
-        break;
-      case Transporte.helicoptero:
-        print('Estou indo numa Aventura de Helicóptero!');
-        break;
-      case Transporte.patins:
-        print('Estou indo numa Aventura de Patins!');
-        break;
-      case Transporte.skate:
-        print('Estou indo numa Aventura de Skate!');
-        break;
-      default:
-        {
-          print('Estou indo numa Aventura!');
-        }
-    }
-  } //Aula 1
-}
 
 
-enum Transporte {
-  //Aula 1 -> Resolvendo o problema dos numeros
-  carro,
-  bicicleta,
-  onibus,
-  aviao,
-  andando,
-  helicoptero,
-  patins,
-  skate,
-}
+
+
