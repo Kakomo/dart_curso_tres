@@ -73,8 +73,58 @@ void main(List<String> arguments) {
   };
   print(precoMap);
 
-  /*Aula 3 Dinamismo*/
+  /*Aula 3 Dinamismo
+  * Variável Dinâmica:
+  *   Quando criamos uma variável ela recebe um tipo e esse tipo não pode ser alterado
+  * porem quando usamos a tipagem dynamic, significa que o TIPO da variável pode ser alterado!
+  *
+  * Variável Estática:
+  *   Quando criamos uma variável, ela é salva na memória. Porém quando criamos uma variável
+  * numa Classe, ela pode ser gerada várias vezes, devido a criação de objetos dessa Classe.
+  * Sempre que criamos um objeto, uma nova parte da memória vai ser usada para armazenar
+  * a variável.
+  * Porém quando usamos STATIC, o local da memória é sempre o mesmo, independente de quantos
+  * objetos sejam criados, permitindo que o valor seja compartilhado entre todos os objetos.
+  *
+  * Linguagem Estática:
+  *   Linguagens que verificam o tipo das variáveis antes de rodar o código.
+  * Isso permite que o compilador nos mostre quando a mudança de um tipo pode causar
+  * problemas no nosso código.
+  * Ou seja, normalmente não podemos mudar a tipagem de objetos.
+  * Linguagem Dinâmica:
+  * Linguagens que verificam o tipo das variáveis na hora em que você rodar o código.
+  * Mostrar no código o que acontece se fizermos uma variável dynamic que pode dar erro.
+  * */
+// Variaveis Dynamic
+  var precoX = 1;// variavel do tipo num( int ou double)
+  print(precoX.runtimeType);// prova Real
+  // x = "frase"; -> vai brigar com a gente porque não podemos alterar a tipagem.
+
+
+  dynamic precoY; // não sabe o tipo
+  precoY = 1; // agora é um int
+  print(precoY.runtimeType);
+  precoY ='frase'; // agora é uma String
+  print(precoY.runtimeType);
+
+
+  //Variáveis Static
+  jalapao.visitar();
+  jalapao.visitar();
+  jalapao.visitar();
+  //mas e se eu for pra outro lugar?
+  Viajar chapada = Viajar(locomocao: Transporte.bicicleta);
+  chapada.visitar();
+  chapada.visitar();
+
+  //Problema Static Dynamic:
+
+  // num z = precoX + precoY; // se y não for um numero, o que acontece?
+  // note que o compilador não está reclamando...
+  // print(z); -> vai dar um erro porque não da pra somar int com String...
+
   /*Aula 4 Encapsulamento*/
+
   /*Aula 5 Callbacks
   */
 }
@@ -84,7 +134,16 @@ class Viajar {
   // 1 = Carro; 2 = Bicicleta; 3 = Avião;
   Transporte locomocao;
 
+  int visitas = 0;//Aula 3
+  static int viagens = 0; //Aula 3
+
   Viajar({required this.locomocao});
+
+  void visitar(){
+    visitas++;
+    viagens++;
+    print('Você visitou esse lugar $visitas vezes \n Você já fez um total de $viagens viagens \n');
+  } //Aula 3
 
   void aventura() {
     //esse modo de definir a locomocao é péssimo, pois não é intuitivo, imagina se nos temos 100 tipos diferentes de locomocao? teremos que ir na tabela para assegurar que o numero escolhido é o correto...
@@ -134,6 +193,7 @@ class Viajar {
     }
   } //Aula 1
 }
+
 
 enum Transporte {
   //Aula 1 -> Resolvendo o problema dos numeros
