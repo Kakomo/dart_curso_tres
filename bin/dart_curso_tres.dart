@@ -166,10 +166,25 @@ print(jalapao.numeroDeViagens);
 
 
   /*Aula 5 Callbacks
-
-
+  -High Order Functions:
+    Antes de já pular direto em CallBacks devemos saber o que é uma HighOrder Function
+  que nada mais é qeu uma função que pode receber em seus parâmetros uma outra função.
+  -CallBack
+    É a função que será dada como argumento na HOF, que será chamada no futuro.
+  (ou seja: elas não são instantâneas)
+  -Função anônima
+    *Ja sabemos como criar uma função e como é sua Sintaxe.
+    *Agora podemos criar um objeto do tipo Função, que recebe uma função anônima.
   */
+  jalapao.abastecer(jalapao.combustivel());
+  jalapao.abastecer(jalapao.combustivel());
+  jalapao.abastecer(jalapao.combustivel());
+  jalapao.abastecer(jalapao.combustivel());
+
 }
+
+
+
 
 
 

@@ -8,7 +8,7 @@ class Viajar {
   int visitas = 0;//Aula 3
   //static int viagens = 0; //Aula 3
   static int _viagens = 0; //Aula 4
-  static String test = 'test';
+  static double dinheiro = 1000.0;
   Viajar({required this.locomocao});
 
   void visitar(){
@@ -79,4 +79,25 @@ class Viajar {
         }
     }
   } //Aula 1
+
+
+  bool combustivel(){
+    print('Tenho um total de $dinheiro');
+    if(dinheiro>=300) {
+      dinheiro = dinheiro - 300;
+      return true;
+    }else{
+      return false;
+    }
+  } //Aula 5
+
+  void abastecer(bool combustivel){
+    print('Estou de ${locomocao.name} e preciso Abastecer');
+    if(combustivel){
+      print('Vou abastecer aqui rapidinho...');
+    }else{
+      print('Não vai dar pra continuar!');
+    }
+
+  }// Aula 5
 }
