@@ -12,9 +12,9 @@ void main(List<String> arguments) {
   **ISSO É UMA REVISÃO DO ULTIMO CURSO BASICAMENTE
   -Novo Recurso: Enums (adicionado fora da main)
   */
-  Viajar jalapao = Viajar(locomocao: Transporte.carro);
-  jalapao.aventura(); // codigo sem enum
-  jalapao.aventura2(); // codigo com enum
+  Viagem jalapao = Viagem(locomocao: Transporte.carro);
+  jalapao.irParaAventura(); // codigo sem enum
+  jalapao.IrParaAventura2(); // codigo com enum
 
   /*Aula 2 Collections ( Não esquecer de mostrar a Documentação )
 * Explicar o conceito de Collections e o armazenamento/manipulação de Dados.
@@ -55,7 +55,8 @@ void main(List<String> arguments) {
     'Chapada Diamantina',
     'São Paulo'
   };
-  print(destinosDesejados.intersection(destinosVisitados));
+  var destinosEmComum = destinosDesejados.intersection(destinosVisitados);
+  print(destinosEmComum);
 
   //Map Literal
   Map<String, String> motivoMap = { // se ficar curto adicionar Elementos no Map
@@ -99,16 +100,16 @@ void main(List<String> arguments) {
   * Mostrar no código o que acontece se fizermos uma variável dynamic que pode dar erro.
   * */
 // Variaveis Dynamic
-  var precoX = 1;// variavel do tipo num( int ou double)
-  print(precoX.runtimeType);// prova Real
+  var precoReal = 1;// variavel do tipo num( int ou double)
+  print(precoReal.runtimeType);// prova Real
   // x = "frase"; -> vai brigar com a gente porque não podemos alterar a tipagem.
 
 
-  dynamic precoY; // não sabe o tipo
-  precoY = 1; // agora é um int
-  print(precoY.runtimeType);
-  precoY ='frase'; // agora é uma String
-  print(precoY.runtimeType);
+  dynamic precoChute; // não sabe o tipo
+  precoChute = 1; // agora é um int
+  print(precoChute.runtimeType);
+  precoChute ='frase'; // agora é uma String
+  print(precoChute.runtimeType);
 
 
   //Variáveis Static
@@ -116,7 +117,7 @@ void main(List<String> arguments) {
   jalapao.visitar();
   jalapao.visitar();
   //mas e se eu for pra outro lugar?
-  Viajar chapada = Viajar(locomocao: Transporte.bicicleta);
+  Viagem chapada = Viagem(locomocao: Transporte.bicicleta);
   chapada.visitar();
   chapada.visitar();
 

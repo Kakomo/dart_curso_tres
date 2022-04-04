@@ -1,6 +1,6 @@
 import 'transporte.dart';
 
-class Viajar {
+class Viagem {
   //Na Aula 1 vamos criar uma classe para viajar, mas vamos fazer de um jeito beeem errado, que é usando números para definir o tipo de locomoção.
   // 1 = Carro; 2 = Bicicleta; 3 = Avião;
   Transporte locomocao;
@@ -9,7 +9,7 @@ class Viajar {
   //static int viagens = 0; //Aula 3
   static int _viagens = 0; //Aula 4
   static double dinheiro = 1000.0;
-  Viajar({required this.locomocao});
+  Viagem({required this.locomocao});
 
   void visitar(){
     visitas++;
@@ -32,7 +32,7 @@ class Viajar {
 
   //Muito trabalho pra mudar uma informação né? ESSA É A IDEIA
 
-  void aventura() {
+  void irParaAventura() {
     //esse modo de definir a locomocao é péssimo, pois não é intuitivo, imagina se nos temos 100 tipos diferentes de locomocao? teremos que ir na tabela para assegurar que o numero escolhido é o correto...
     if (locomocao == 1) {
       print('Estou indo numa Aventura de Carro!');
@@ -45,7 +45,7 @@ class Viajar {
     }
   } //Aula 1
 
-  void aventura2() {
+  void IrParaAventura2() {
     //aqui vamos usar o Enums para melhorar
     //também vamos usar switch and case, que foram disponibilizados num para saber mais do curso 1.
     switch (locomocao) {
